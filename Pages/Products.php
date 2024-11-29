@@ -13,16 +13,23 @@
         $Duration = array("150", "90", "120", "30", "90", "30");
         $Cost = array("25", "20", "30", "15", "25", "15");
 
+        //Navigation Array
+        $navCaptions = array("Home", "Recipes");
+        $navLinks = array("http://localhost:63342/aaaProjects/index.php?_ijt=dc29e8asotdttrdic3uucdotts&_ij_reload=RELOAD_ON_SAVE", "http://localhost:63342/aaaProjects/Pages/Products.php?_ijt=65vescnnldtdlgmvqq3cjc27g9&_ij_reload=RELOAD_ON_SAVE")
+
     ?>
 
-    <h1>Recipe Collection</h1>
 
     <nav>
+        <h1>Food Spot</h1>
         <ul>
-            <li><a href="/index.php">Home</a></li>
-            <li><a href="Products.php">Products</a></li>
+            <li><a href="<?php echo $navLinks[0];?>"><?php echo $navCaptions[0]; ?></a></li>
+            <li><a href="<?php echo $navLinks[1];?>"><?php echo $navCaptions[1]; ?></a></li>
         </ul>
+        <button>Review</button>
     </nav>
+
+    <h1>Recipe Collection</h1>
 
     <table>
         <tr>

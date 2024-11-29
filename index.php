@@ -4,8 +4,8 @@
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <!-- Created 99-99-9999 by name -->
-    <!-- This page demonstrates functions -->
+    <!-- Created 11-26-2024 by your Ashley A -->
+    <!-- This page is the Homepage of the Product listing Project -->
     <title>Functions</title>
     <meta http-equiv="Content-Type"
           content="text/html; charset=iso-8859-1" />
@@ -28,6 +28,22 @@
     </style>
 </head>
 <body>
+    <?php   //Navigation Array
+        $navCaptions = array("Home", "Recipes");
+        $navLinks = array("http://localhost:63342/aaaProjects/index.php?_ijt=dc29e8asotdttrdic3uucdotts&_ij_reload=RELOAD_ON_SAVE", "http://localhost:63342/aaaProjects/Pages/Products.php?_ijt=65vescnnldtdlgmvqq3cjc27g9&_ij_reload=RELOAD_ON_SAVE" )
+
+    ?>
+
+    <nav>
+        <h1><a href="<?php echo $navLinks[0];?>">Food Spot</a></h1>
+        <a href="<?php echo $navLinks[0];?>"><img src="Img/DALL·E 2024-11-28 21.24.45 - A minimalistic icon resembling an iPhone emoji style_ a brown book with a simple red location drop pin in the center. The design is flat, clean, and c.jpg" alt=""/></a>
+        <ul>
+            <li><a href="<?php echo $navLinks[0];?>"><?php echo $navCaptions[0]; ?></a></li>
+            <li><a href="<?php echo $navLinks[1];?>"><?php echo $navCaptions[1]; ?></a></li>
+        </ul>
+        <button>Review</button>
+    </nav>
+
     <img src="Img/download.jpg" alt="Hello World Image">
     <h1>Welcome to the Second PHP Page</h1>
 
@@ -38,12 +54,7 @@
         Memo();
     ?>
 
-    <nav>
-        <ul>
-            <li><a href="/index.php">Home</a></li>
-            <li><a href="Pages/Products.php">Products</a></li>
-        </ul>
-    </nav>
+
 
     <div class="Button">Buy now</div>
 
