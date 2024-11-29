@@ -4,6 +4,20 @@
     <!-- Created 11-28-2024 by your Ashley A -->
     <!-- This page is a table of all the products that will be displayed on the webpage. -->
     <title>Products Array</title>
+    <style>
+        table{
+            border: 2px solid black;
+        }
+        th{
+            border: 2px solid black;
+        }
+        td{
+            border: 2px solid black;
+        }
+        tr{
+            border: 2px solid black;
+        }
+    </style>
 </head>
 
 <body>
@@ -42,38 +56,38 @@
         <tr>
             <th><?php echo $Dishes[0]; ?></th>
             <td><?php echo $Country[0]; ?></td>
-            <td><?php echo $Duration[0]; ?></td>
-            <td><?php echo $Cost[0]; ?></td>
+            <td><?php echo "$Duration[0] minutes"; ?></td>
+            <td><?php echo "$$Cost[0]"; ?></td>
         </tr>
         <tr>
             <th><?php echo $Dishes[1]; ?></th>
             <td><?php echo $Country[1]; ?></td>
-            <td><?php echo $Duration[1]; ?></td>
-            <td><?php echo $Cost[1]; ?></td>
+            <td><?php echo "$Duration[1] minutes"; ?></td>
+            <td><?php echo "$$Cost[1]"; ?></td>
         </tr>
         <tr>
             <th><?php echo $Dishes[2]; ?></th>
             <td><?php echo $Country[2]; ?></td>
-            <td><?php echo $Duration[2]; ?></td>
-            <td><?php echo $Cost[2]; ?></td>
+            <td><?php echo "$Duration[2] minutes"; ?></td>
+            <td><?php echo "$$Cost[2]"; ?></td>
         </tr>
         <tr>
             <th><?php echo $Dishes[3]; ?></th>
             <td><?php echo $Country[3]; ?></td>
-            <td><?php echo $Duration[3]; ?></td>
-            <td><?php echo $Cost[3]; ?></td>
+            <td><?php echo "$Duration[3] minutes"; ?></td>
+            <td><?php echo "$$Cost[3]"; ?></td>
         </tr>
         <tr>
             <th><?php echo $Dishes[4]; ?></th>
             <td><?php echo $Country[4]; ?></td>
-            <td><?php echo $Duration[4]; ?></td>
-            <td><?php echo $Cost[4]; ?></td>
+            <td><?php echo "$Duration[4] minutes"; ?></td>
+            <td><?php echo "$$Cost[4]"; ?></td>
         </tr>
         <tr>
             <th><?php echo $Dishes[5]; ?></th>
             <td><?php echo $Country[5]; ?></td>
-            <td><?php echo $Duration[5]; ?></td>
-            <td><?php echo $Cost[5]; ?></td>
+            <td><?php echo "$Duration[5] minutes"; ?></td>
+            <td><?php echo "$$Cost[5]"; ?></td>
         </tr>
 
     </table>
