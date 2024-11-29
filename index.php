@@ -2,7 +2,7 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <!-- Created 99-99-9999 by name -->
     <!-- This page demonstrates functions -->
@@ -28,7 +28,7 @@
     </style>
 </head>
 <body>
-    <img src="download.jpg" alt="Hello World Image">
+    <img src="Img/download.jpg" alt="Hello World Image">
     <h1>Welcome to the Second PHP Page</h1>
 
     <?php
@@ -38,14 +38,12 @@
         Memo();
     ?>
 
-    <div>
+    <nav>
         <ul>
-            <li>Home</li>
-            <li>Recipes</li>
-            <li>Blogs</li>
-            <li>Contacts</li>
+            <li><a href="/index.php">Home</a></li>
+            <li><a href="Pages/Products.php">Products</a></li>
         </ul>
-    </div>
+    </nav>
 
     <div class="Button">Buy now</div>
 
