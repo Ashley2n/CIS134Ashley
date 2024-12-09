@@ -22,10 +22,30 @@
 
 <body>
     <?php
+        $tableCaptions = array ("Dishes", "Country", "Duration", "Cost");
+            foreach ($tableCaptions as $caption) {
+                echo "<th> $caption </th>";
+            }
+            echo "<br>";
         $Dishes = array("Biryani", "Jollof Rice", "Pho", "Poutine", "Lasagna", "Hummus with Pita");
+            foreach ($Dishes as $Dish) {
+                echo "<td> $Dish </td>";
+            }
+            echo "<br>";
         $Country = array("India", "Nigeria", "Vietnam", "Canada", "Italy", "Levant Region");
+            foreach ($Country as $country) {
+                echo "<td> $country </td>";
+            }
+            echo "<br>";
         $Duration = array("150", "90", "120", "30", "90", "30");
+            foreach ($Duration as $duration) {
+                echo "<td> $duration </td>";
+            }
+            echo "<br>";
         $Cost = array("25", "20", "30", "15", "25", "15");
+            foreach ($Cost as $cost) {
+                echo "<td> $cost </td>";
+            }
 
         //Navigation Array
         $navCaptions = array("Home", "Recipes");
@@ -91,6 +111,15 @@
         </tr>
 
     </table>
+
+    <footer>
+        <?php
+            include 'inc.footer.php'
+
+        ?>
+    </footer>
+
+
 
 </body>
 </html>
