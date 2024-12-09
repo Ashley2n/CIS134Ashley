@@ -3,6 +3,6 @@
     $username = null;
 
     if ($isLogin == true){
-        echo ("Wellcome " . $username);
+        echo ("Welcome " . $username);
     }
 ?>

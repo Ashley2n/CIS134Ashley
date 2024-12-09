@@ -22,6 +22,13 @@
 
 <body>
     <?php
+
+    include 'inc_welcome.php';
+
+    include 'inc_navigation.php';
+
+    echo "<h1>Recipe Collection</h1>";
+
         $tableCaptions = array ("Dishes", "Country", "Duration", "Cost");
             foreach ($tableCaptions as $caption) {
                 echo "<th> $caption </th>";
@@ -48,24 +55,24 @@
             }
 
         //Navigation Array
-        $navCaptions = array("Home", "Recipes");
-        $navLinks = array("http://localhost:63342/aaaProjects/index.php?_ijt=dc29e8asotdttrdic3uucdotts&_ij_reload=RELOAD_ON_SAVE", "http://localhost:63342/aaaProjects/Pages/Products.php?_ijt=65vescnnldtdlgmvqq3cjc27g9&_ij_reload=RELOAD_ON_SAVE")
+//        $navCaptions = array("Home", "Recipes");
+//        $navLinks = array("http://localhost:63342/aaaProjects/index.php?_ijt=dc29e8asotdttrdic3uucdotts&_ij_reload=RELOAD_ON_SAVE", "http://localhost:63342/aaaProjects/Pages/Products.php?_ijt=65vescnnldtdlgmvqq3cjc27g9&_ij_reload=RELOAD_ON_SAVE")
 
     ?>
 
 
-    <nav>
+    <!--<nav>
         <h1>Food Spot</h1>
         <ul>
-            <li><a href="<?php echo $navLinks[0];?>"><?php echo $navCaptions[0]; ?></a></li>
-            <li><a href="<?php echo $navLinks[1];?>"><?php echo $navCaptions[1]; ?></a></li>
+            <li><a href="<?php /*echo $navLinks[0];*/?>"><?php /*echo $navCaptions[0]; */?></a></li>
+            <li><a href="<?php /*echo $navLinks[1];*/?>"><?php /*echo $navCaptions[1]; */?></a></li>
         </ul>
         <button>Review</button>
     </nav>
+-->
 
-    <h1>Recipe Collection</h1>
 
-    <table>
+    <!--<table>
         <tr>
             <th>Dishes</th>
             <th>Country</th>
@@ -74,48 +81,47 @@
         </tr>
 
         <tr>
-            <th><?php echo $Dishes[0]; ?></th>
-            <td><?php echo $Country[0]; ?></td>
-            <td><?php echo "$Duration[0] minutes"; ?></td>
-            <td><?php echo "$$Cost[0]"; ?></td>
+            <th><?php /*echo $Dishes[0]; */?></th>
+            <td><?php /*echo $Country[0]; */?></td>
+            <td><?php /*echo "$Duration[0] minutes"; */?></td>
+            <td><?php /*echo "$$Cost[0]"; */?></td>
         </tr>
         <tr>
-            <th><?php echo $Dishes[1]; ?></th>
-            <td><?php echo $Country[1]; ?></td>
-            <td><?php echo "$Duration[1] minutes"; ?></td>
-            <td><?php echo "$$Cost[1]"; ?></td>
+            <th><?php /*echo $Dishes[1]; */?></th>
+            <td><?php /*echo $Country[1]; */?></td>
+            <td><?php /*echo "$Duration[1] minutes"; */?></td>
+            <td><?php /*echo "$$Cost[1]"; */?></td>
         </tr>
         <tr>
-            <th><?php echo $Dishes[2]; ?></th>
-            <td><?php echo $Country[2]; ?></td>
-            <td><?php echo "$Duration[2] minutes"; ?></td>
-            <td><?php echo "$$Cost[2]"; ?></td>
+            <th><?php /*echo $Dishes[2]; */?></th>
+            <td><?php /*echo $Country[2]; */?></td>
+            <td><?php /*echo "$Duration[2] minutes"; */?></td>
+            <td><?php /*echo "$$Cost[2]"; */?></td>
         </tr>
         <tr>
-            <th><?php echo $Dishes[3]; ?></th>
-            <td><?php echo $Country[3]; ?></td>
-            <td><?php echo "$Duration[3] minutes"; ?></td>
-            <td><?php echo "$$Cost[3]"; ?></td>
+            <th><?php /*echo $Dishes[3]; */?></th>
+            <td><?php /*echo $Country[3]; */?></td>
+            <td><?php /*echo "$Duration[3] minutes"; */?></td>
+            <td><?php /*echo "$$Cost[3]"; */?></td>
         </tr>
         <tr>
-            <th><?php echo $Dishes[4]; ?></th>
-            <td><?php echo $Country[4]; ?></td>
-            <td><?php echo "$Duration[4] minutes"; ?></td>
-            <td><?php echo "$$Cost[4]"; ?></td>
+            <th><?php /*echo $Dishes[4]; */?></th>
+            <td><?php /*echo $Country[4]; */?></td>
+            <td><?php /*echo "$Duration[4] minutes"; */?></td>
+            <td><?php /*echo "$$Cost[4]"; */?></td>
         </tr>
         <tr>
-            <th><?php echo $Dishes[5]; ?></th>
-            <td><?php echo $Country[5]; ?></td>
-            <td><?php echo "$Duration[5] minutes"; ?></td>
-            <td><?php echo "$$Cost[5]"; ?></td>
+            <th><?php /*echo $Dishes[5]; */?></th>
+            <td><?php /*echo $Country[5]; */?></td>
+            <td><?php /*echo "$Duration[5] minutes"; */?></td>
+            <td><?php /*echo "$$Cost[5]"; */?></td>
         </tr>
 
-    </table>
+    </table>-->
 
     <footer>
         <?php
             include 'inc.footer.php'
-
         ?>
     </footer>
 
