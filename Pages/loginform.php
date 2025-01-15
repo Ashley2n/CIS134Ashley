@@ -17,6 +17,7 @@
     <!-- Bottom -->
     <br><br>
     <input type="submit" name="Submit" value="Send Form" />
+    <input type="button" name="Create" value="Create Login">
 </form>
 </body>
 </html>
