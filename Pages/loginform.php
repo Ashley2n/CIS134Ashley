@@ -22,6 +22,9 @@ session_start();
     <br><br>
     <input type="submit" name="Submit" value="Send Form" />
     <input type="button" name="Create" value="Create Login">
+    <?php
+        if(isset($message)) echo $message;
+    ?>
 </form>
 </body>
 </html>

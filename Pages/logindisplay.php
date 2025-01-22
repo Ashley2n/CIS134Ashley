@@ -18,7 +18,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     echo "Password:  " . $password;
     echo "<br><br><br>";
 
-    searchPasswordFile($username, $password);
+    $userInfo = array(
+        // Finding a way to read the file into here
+        ["username" => "user1", "password" => "Thisisthefirstpassword"],
+        ["username" => "user2", "password" => "GoodPasswords_123"],
+        ["username" => "user3", "password" => "IsthisaGoodpassword"],
+        ["username" => "user4", "password" => "HiHowareyou"],
+        ["username" => "user5", "password" => "Goodnight@10"],
+    );
+
+
+    searchPasswordFile($username, $password, $userInfo);
 }
 else
 {
@@ -27,79 +37,49 @@ else
 
 //Array that will be used for checking the password
 
-$LoginInfo = array(
-    // Finding a way to read the file into here
-);
 
 
 
-function searchPasswordFile($username, $password){
-        echo "<h3>This is Password Search Function</h3>";
-        global $isLogin;
-        // Program setting the location
-        $fileSource = "C:\Users\awind\OneDrive\Documents\PHP\password.txt";
+function searchPasswordFile($username, $password, $userInfo){
+    echo "<h3>This is Password Search Function</h3>";
+    global $isLogin;
 
-        // reading the passwords page
-        $fp = fopen($fileSource, "r");
-
-        // Loop check for if the passwords and username match
-        while(!$isLogin){
-        while (($line = trim(fgets($fp))) != false) {
-            // check if the loop hit end of the file that its reading
-
-                // Getting username and password
-                if(list($username1, $password1) = explode(",", $line)){
-                    echo "<h3>Read User and Pass </h3>";
-                    echo "Username: $username1 <br>";
-                    echo "Passwor: $password1 <br>";
-                }
-
-
-                // Checking id the input matches the username and password
-                if($username === $username1 && $password === $password1){
-                    echo "<h3>Match</h3>";
-                    echo "$username1 and $username1 match<br>";
-                    echo "$password1 and $password1 match<br>";
-                    $isLogin = true;
-                    break;
-                }
-                /*else{
-                    $_SESSION["ErrorMessage"] = "Username or Password is invalid";
-                    header('Location: loginform.php');
-                    echo "Error" . $_SESSION["ErrorMessage"] . "<br>";
-                }*/
-
-            }
-            fclose($fp);
-
+    foreach($userInfo as $user){
+        if($username == $user["username"] && $password == $user["password"]){
+            $isLogin = true;
+            break;
         }
+    }
 
-
-        if ($isLogin) {
-            echo "<h3>Welcome $username</h3>";
-        }
-        else{
-            echo "<h3>Login Failed</h3>";
-        }
+    if ($isLogin) {
+        echo "<h3>Welcome $username</h3>";
+    }
+    else{
+        echo "<h3>Login Failed</h3>";
+    }
 }
 
- if (isset($_POST["Create"])){
+ if (isset($_POST["username"]) && (isset($_POST["password"])) && (isset($_POST["Create"]))){
      // getting the username and password
-     $username = htmlspecialchars($_POST["username"]);
-     $password = htmlspecialchars($_POST["password"]);
+     $newUsername = htmlspecialchars(trim($_POST["username"]));
+     $newPassword = htmlspecialchars(trim($_POST["password"]));
 
-     addingUserAndPass($username, $password);
+
+     if(!empty($newUsername) && !empty($newPassword)){
+         $_SESSION['users'][] = ["username" => $newUsername, "password" => $newPassword];
+         $message = "<h4 style='background:lightgreen;'>New user added!</h4>";
+     }
+     else{
+         $message = "<h4 style='background:lightcoral;'>Input data failed!</h4>";
+     }
+     // addingUserAndPass($newUsername, $newPassword);
 
  }
 
 
-function addingUserAndPass($username, $password){
-    $passwordPage = "C:\Users\awind\OneDrive\Documents\PHP\password.txt";
-    $fp = fopen($passwordPage, "a");
-    fwrite($fp, $username);
-    fwrite($fp, $password);
+/*function addingUserAndPass($newUsername, $newPassword){
 
-}
+}*/
 
 /*    while (!feof($fp)) {
         if(strcmp($username, $username1) == 0){
