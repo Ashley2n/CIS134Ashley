@@ -1,96 +1,72 @@
-<!DOCTYPE html>
+
+<?php
+$websiteErr = "";
+$country = "";
+$countryError = "";
+$cost = "";
+$costError = "";
+$duration = "";
+$durationError = "";
+$errorMessage = "";
+
+if (isset($_POST['Submit']) && $_SERVER['REQUEST_METHOD'] == 'POST')
+{
+    if(empty($_POST['country'])){
+        $countryError = "Country is required";
+    }
+    else{
+
+        $country = htmlspecialchars($_POST['country']);
+    }
+
+    if(empty($_POST['cost'])){
+        $costError = "Cost is required";
+    }
+    else{
+        if(!is_numeric($_POST['cost'])) {
+            $costError = "Cost is not a number";
+        }
+        else {
+            $cost = htmlspecialchars($_POST['cost']);
+        }
+    }
+
+    if(empty($_POST['duration'])){
+        $durationError = "Duration is required";
+    }else{
+        $duration = htmlspecialchars($_POST['duration']);
+    }
+
+} // End brace to end the if statement's true block.
+
+?>
+
+<!DOCTYPE HTML>
 <html lang="en">
 <head>
-    <!-- loginForm Created 1-7-2025 by Ashley A -->
-    <!-- This page is an example of form input. -->
-    <title>Second Form for Item page</title>
+    <style>
+        .error {color: #FF0000;}
+    </style>
+    <title>Inputs</title>
 </head>
 <body>
-<?php
-
-/*function validateNumber($cost){
-    global $errorCount;
-    if(empty($cost)){
-        echo "Cost is required ";
-        echo "<br>";
-        $errorCount++;
-        $retrieval = "";
-        header("location: itemform.php");
-    }
-    else{ // if it isn't empty check or numeric
-        $cost = trim($cost);
-        if (is_numeric($cost)) {
-            $retrieval = $cost;
-        }
-        else{
-            echo "This is not a number";
-            echo "<br>";
-            $retrieval = "";
-        }
-    }
-    return $retrieval;
-}*/
-
-$countryError = "";
-$costError = "";
-$durationError = "";
-
-    if (isset($_POST['Submit']) && $_SERVER['REQUEST_METHOD'] == 'POST')
-    {
-        if(empty($_POST['country'])){
-            $countryError = "Country is required";
-        }
-        else{
-            $country = htmlspecialchars($_POST['country']);
-        }
-
-        if(empty($_POST['cost'])){
-            $costError = "Cost is required";
-        }
-        else{
-            if(!is_numeric($_POST['cost'])) {
-                $costError = "Cost is not a number";
-            }
-            else {
-                $cost = htmlspecialchars($_POST['cost']);
-            }
-        }
-
-        $duration = htmlspecialchars($_POST['duration']);
-
-        // This is the form handling code.
-        /*
-            $country = htmlspecialchars($_POST['country']);
-            $cost = htmlspecialchars($_POST['cost']);
-            $duration = $_POST['duration'];
-        */
-        echo "Your form has been submitted. These are the Results";
-        echo "<br>";
-        echo "Country: ". $country;
-        echo "<br>";
-        echo "Cost: ". $cost;
-        echo "<br>";
-        echo "duration: ". $duration;
-
-
-    } // End brace to end the if statement's true block.
-    else
-{
-?>
+<h3>Form Validation Test</h3>
+<p><span class="error">* Required fields</span></p>
 <p><b>Form For Items Page</b></p>
 <form name="itemForm" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
 
-    Country: <input type="text" id="country" name="country" value="" />
+    Country: <input type="text" id="country" name="country" value="<?php echo $country ?>" />
     <span class="error"> * <?php echo $countryError;?></span>
     <br>
     <br>
     <label for="cost"> Cost: </label>
-    <input type="text" id="cost" name="cost" placeholder="$1 - $30" />
+    <input type="text" id="cost" name="cost" placeholder="$1 - $30" value="<?php echo $cost?>"/>
     <span class="error"> * <?php echo $costError;?></span>
 
 
     <!-- Radio Bottoms-->
     <p>Duration</p>
+    <span class="error"><?php echo $durationError?></span>
     <input type="radio" id="duration1" name="duration" value="90" />
     <label for="duration1"> 90 mins </label>
 
@@ -109,10 +85,21 @@ $durationError = "";
     <!-- Bottom -->
     <br><br>
     <input type="submit" name="Submit" value="Submit" />
-    <?php
-    }
-    ?>
 </form>
+
+<?php
+echo "Inputs:";
+
+echo "Your form has been submitted. These are the Results";
+echo "<br>";
+echo "Country: ". $country;
+echo "<br>";
+echo "Cost: ". $cost;
+echo "<br>";
+echo "duration: ". $duration;
+
+
+?>
 
 </body>
 </html>

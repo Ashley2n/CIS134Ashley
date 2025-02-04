@@ -1,0 +1,17 @@
+CREATE DATABASE aadatabase;
+
+CREATE TABLE Products(
+	DishName
+	DishID --> Primart Key
+	Country
+	Duration
+	Cost
+)
+
+CREATE TABLE orderInformation (
+	OrderID --> Primary
+	DishID  --> Foregin
+	Qunatity
+	Cost
+	Date
+)

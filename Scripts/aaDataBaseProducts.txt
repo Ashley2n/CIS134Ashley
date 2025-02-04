@@ -1,0 +1,12 @@
+Jollof Rice;001;Nigeria;90;20
+Poutine;002;Canada;30;8
+Bibimbap;003;South Korea;40;10
+Feijoada;004;Brazil;180;15
+Moussaka;005;Greece;90;12
+Pho;006;Vietnam;120;7
+Pierogi;007;Poland;60;6
+Ceviche;008;Peru;30;9
+Bobotie;009;South Africa;90;11
+Rendang;010;Indonesia;240;14
+Haggis;011;Scotland;120;13
+Falafel;012;Middle East;45;5
