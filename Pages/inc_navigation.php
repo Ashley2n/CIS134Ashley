@@ -21,11 +21,15 @@
 
     $link1 = new Link("Home", "http://localhost:63342/aaaProjects/index.php?_ijt=dc29e8asotdttrdic3uucdotts&_ij_reload=RELOAD_ON_SAVE");
     $link2 = new Link("Recipes", "http://localhost:63342/aaaProjects/Pages/Products.php?_ijt=65vescnnldtdlgmvqq3cjc27g9&_ij_reload=RELOAD_ON_SAVE");
+    $link3 = new Link("Item Display", "http://localhost:63342/aaaProjects/Pages/itemdisplay.php?_ijt=jdi73c7nq0ofe8vg2gdedh2mtf&_ij_reload=RELOAD_ON_SAVE");
+    $link4 = new Link("Order Display", "http://localhost:63342/aaaProjects/Pages/ordersdisplay.php?_ijt=7f88suc1sdu9jd2rpevoutggr4&_ij_reload=RELOAD_ON_SAVE");
 
 
     $navSet = array(
             $link1,
-            $link2
+            $link2,
+            $link3,
+            $link4
     );
 
 foreach($navSet as $set) {
