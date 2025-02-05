@@ -38,6 +38,7 @@ foreach($navSet as $set) {
 ?>
 
 
+
 <!--<nav>-->
 <!--    <h1>Food Spot</h1>-->
 <!--    <ul>-->
