@@ -1,23 +1,42 @@
 <?php
 session_start();
-$isLogin = false;
+setcookie('user', $_POST['username'], time() + (86400 * 30), "/");
+$_SESSION['usernameErr'] = "";
+$_SESSION['passwordErr'] = "";
+
+
 // This if statement should be with all redirected pages to make sure
 // the user are getting into the pages in correct way
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if (isset($_POST["Submit"]) && ($_SERVER["REQUEST_METHOD"] == "POST")){
     // htmlspecialchars() this transform the data the user
     // types in as a html entity allowing for a safe website
     // it prevents the people from hacking to the website.
-    $username = htmlspecialchars(trim($_POST["username"]));
-    $password = htmlspecialchars(trim($_POST["password"]));
+    $_SESSION['loggedIn'] = false;
 
+    $username = null;
+    $password = null;
 
-    echo "Input data \n";
-    echo "<br><br>";
-    echo "Username: " . $username;
-    echo "<br>";
-    echo "Password:  " . $password;
-    echo "<br><br><br>";
+    // Checks Username feild
+    if (empty($_POST["username"])) {
+        $_SESSION['usernameErr'] = 'Username is Required';
+        $_SESSION['loggedIn'] = false;
+        header("location: loginform.php");
+    } else {
+        $username = htmlspecialchars(trim($_POST["username"]));
+    }
 
+    // Checks Password field
+    if (empty($_POST["password"])) {
+        $_SESSION['passwordErr'] = 'Password is Required';
+        $_SESSION['loggedIn'] = false;
+        header("location: loginform.php");
+    } else {
+        $password = htmlspecialchars(trim($_POST["password"]));
+    }
+
+// Checks if the buttom was clicked or any actions
+
+// Hard coded array
     $userInfo = array(
         // Finding a way to read the file into here
         ["username" => "user1", "password" => "Thisisthefirstpassword"],
@@ -27,25 +46,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         ["username" => "user5", "password" => "Goodnight@10"],
     );
 
-
+// Function that searches for the password
     searchPasswordFile($username, $password, $userInfo);
+    var_dump($_SESSION['loggedIn']);
+
+// Outputted message
+    echo "Input data \n";
+    echo "<br><br>";
+    echo "Username: " . $username;
+    echo "<br>";
+    echo "Password:  " . $password;
+    echo "<br><br><br>";
 }
-else
-{
-    header('Location: loginform.php');
-}
+
 
 //Array that will be used for checking the password
 
 
-
-
-function searchPasswordFile($username, $password, $userInfo){
+function searchPasswordFile($username, $password, $userInfo)
+{
     echo "<h3>This is Password Search Function</h3>";
     global $isLogin;
 
-    foreach($userInfo as $user){
-        if($username == $user["username"] && $password == $user["password"]){
+    foreach ($userInfo as $user) {
+        if ($username == $user["username"] && $password == $user["password"]) {
+            $_SESSION['loggedIn'] = true;
             $isLogin = true;
             break;
         }
@@ -53,28 +78,53 @@ function searchPasswordFile($username, $password, $userInfo){
 
     if ($isLogin) {
         echo "<h3>Welcome $username</h3>";
-    }
-    else{
+    } else {
         echo "<h3>Login Failed</h3>";
     }
 }
 
- if (isset($_POST["username"]) && (isset($_POST["password"])) && (isset($_POST["Create"]))){
-     // getting the username and password
-     $newUsername = htmlspecialchars(trim($_POST["username"]));
-     $newPassword = htmlspecialchars(trim($_POST["password"]));
+if (isset($_POST["Create"]) && ($_SERVER["REQUEST_METHOD"] == "POST")) {
+
+    // getting the username and password
+
+    // Checks Username field
+    if(empty($_POST["username"])) {
+        $_SESSION['usernameErr'] = 'Username is Required';
+        header("location: loginform.php");
+    } else {
+        $newUsername = htmlspecialchars(trim($_POST["username"]));
+    }
+
+// Checks Password field
+    if (empty($_POST["password"])) {
+        $_SESSION['passwordErr'] = 'Password is Required';
+        header("location: loginform.php");
+    } else {
+        $newPassword = htmlspecialchars(trim($_POST["password"]));
+    }
 
 
-     if(!empty($newUsername) && !empty($newPassword)){
-         $_SESSION['users'][] = ["username" => $newUsername, "password" => $newPassword];
-         $message = "<h4 style='background:lightgreen;'>New user added!</h4>";
-     }
-     else{
-         $message = "<h4 style='background:lightcoral;'>Input data failed!</h4>";
-     }
-     // addingUserAndPass($newUsername, $newPassword);
 
- }
+    addingUserAndPass($newUsername, $newPassword);
+
+}
+
+function addingUserAndPass($newUsername, $newPassword, $userInfo)
+{
+    ;
+    if(true){
+        try {
+            $userInfo += ["username" => $newUsername, "password" => $newPassword];
+            var_dump($userInfo);
+        }catch(Exception $e){
+            echo "Something is Wrong with the Password: " . $e->getMessage();
+        }
+    }
+
+
+
+}
+
 
 
 /*function addingUserAndPass($newUsername, $newPassword){
